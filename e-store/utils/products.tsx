@@ -10,7 +10,7 @@ export const products = [
     category: "Phone",
     inStock: true,
     images: [
-      {
+    {
         color: "White",
         colorCode: "#FFFFFF",
         image:
