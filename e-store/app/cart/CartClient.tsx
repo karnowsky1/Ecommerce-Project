@@ -6,9 +6,10 @@ import { MdArrowBack } from "react-icons/md"
 import Heading from "../components/Heading"
 import Button from "../components/Button"
 import ItemContent from "./ItemContent"
+import { formatPrice } from "@/utils/formatPrice"
 
 const CartClient = () => {
-  const {cartProducts, handleClearCart} = useCart()
+  const {cartProducts, handleClearCart, cartTotalAmount} = useCart()
 
   if(!cartProducts || cartProducts.length === 0) {
     return (
@@ -44,9 +45,9 @@ const CartClient = () => {
           <Button label="Clear Cart" onClick={()=>{handleClearCart()}} small outline/>
         </div>
         <div className="text-sm flex flex-col gap-1 items-start">
-          <div className="flex justify-between text-base font-semibold">
+          <div className="flex justify-between w-full text-base font-semibold">
             <span>Subtotal</span>
-            <span>$1,000</span>
+            <span>{formatPrice(cartTotalAmount)}</span>
           </div>
           <p className="text-slate-500">Taxes and Shipping caluclated at checkout</p>
           <Button label="Checkout" onClick={() => {}}/>
