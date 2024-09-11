@@ -1,9 +1,11 @@
 "use client"
 
 import Heading from "@/app/components/Heading"
+import Status from "@/app/components/Status"
 import { formatPrice } from "@/utils/formatPrice"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import { Product } from "@prisma/client"
+import { MdClose, MdDone } from "react-icons/md"
 
 interface ManageProductsClientProps {
   products: Product[]
@@ -34,11 +36,25 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({products}) =
     }},
     {field: "category", headerName: "Category", width: 100},
     {field: "brand", headerName: "Brand", width: 100},
-    {field: "inStock", headerName: "inStock", width: 120, renderCell: 
+    {field: "inStock", headerName: "In Stock", width: 120, renderCell: 
       (params) => {
         return(
           <div>
-            {params.row.inStock === true ? "in stock" : "out of stock"}
+            {params.row.inStock === true ? ( 
+              <Status 
+                text="in stock" 
+                icon={MdDone} 
+                background="bg-teal-200" 
+                color="text-teal-700"
+              />
+            ): (
+              <Status 
+                text="out of stock" 
+                icon={MdClose} 
+                background="bg-rose-200" 
+                color="text-rose-700"
+              />
+            )}
           </div>
         )
       }
