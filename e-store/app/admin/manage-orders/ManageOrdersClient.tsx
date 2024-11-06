@@ -90,7 +90,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({orders}) => {
                 text="delivered" 
                 icon={MdDone} 
                 background="bg-green-200" 
-                color="text-greene-700"
+                color="text-green-700"
               />
             ) : <></>}
           </div>
