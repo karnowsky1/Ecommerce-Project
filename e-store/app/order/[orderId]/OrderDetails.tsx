@@ -25,11 +25,11 @@ const OrderDetails:React.FC<OrderDetailsProps> = ({order}) => {
       <div className="flex gap-2 items-center">
         <div>Payment Status:</div>
         <div>
-          {order.status === "pending " ? (
+          {order.status === "pending" ? (
             <Status 
               text="pending"
               icon={MdAccessTimeFilled}
-              background="bg-slate-700"
+              background="bg-slate-200"
               color="text-slate-700"
             />
           ) : order.status === "complete" ? (
@@ -47,11 +47,11 @@ const OrderDetails:React.FC<OrderDetailsProps> = ({order}) => {
       <div className="flex gap-2 items-center">
         <div>Delivery Status:</div>
         <div>
-          {order.deliveryStatus === "pending " ? (
+          {order.deliveryStatus === "pending" ? (
             <Status 
               text="pending"
               icon={MdAccessTimeFilled}
-              background="bg-slate-700"
+              background="bg-slate-200"
               color="text-slate-700"
             />
           ) : order.deliveryStatus === "dispatched" ? (

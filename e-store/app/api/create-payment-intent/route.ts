@@ -3,7 +3,6 @@ import prisma from "@/libs/prismadb"
 import { NextResponse } from "next/server"
 import { CartProductType } from "@/app/product/[productId]/ProductDetails"
 import { getCurrentUser } from "@/actions/getCurrentUser"
-import { error } from "console"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2024-06-20"
@@ -87,4 +86,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({paymentIntent})
   }
+
+  // Return a default response if none of the conditions are met
 }

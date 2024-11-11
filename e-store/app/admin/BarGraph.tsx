@@ -39,7 +39,7 @@ const BarGraph:React.FC<BarGraphProps> = ({data}) => {
       }
     }
   }
-  return (<Bar data={chartData} options={options}> </Bar>)
+  return (<Bar className="flex justify-center" data={chartData} options={options}> </Bar>)
 }
 
 export default BarGraph

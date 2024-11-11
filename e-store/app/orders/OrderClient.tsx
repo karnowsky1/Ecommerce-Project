@@ -6,11 +6,8 @@ import Status from "@/app/components/Status"
 import { formatPrice } from "@/utils/formatPrice"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import { Order, User } from "@prisma/client"
-import axios from "axios"
 import moment from "moment"
 import { useRouter } from "next/navigation"
-import { useCallback } from "react"
-import toast from "react-hot-toast"
 import { MdAccessTimeFilled, MdDeliveryDining, MdDone, MdRemoveRedEye } from "react-icons/md"
 
 interface OrdersClientProps {
@@ -106,9 +103,11 @@ const OrdersClient: React.FC<OrdersClientProps> = ({orders}) => {
       (params) => {
         return (
           <div className="flex justify-between gap-4 w-full items-center h-full">
-            <ActionButton icon={MdRemoveRedEye} onClick={()=>{
-              router.push(`/order/${params.row.id}`)
-            }} />
+            <ActionButton 
+              icon={MdRemoveRedEye} 
+              onClick={()=>{router.push(`/order/${params.row.id}`)}} 
+              tooltip="View Order Details"  
+            />
           </div>
         )
       }
@@ -118,7 +117,7 @@ const OrdersClient: React.FC<OrdersClientProps> = ({orders}) => {
   return (
     <div className="max-w-[1000px] m-auto text-xl">
       <div className="mb-4 mt-8">
-        <Heading title=" Orders" center/>
+        <Heading title="My Orders" center/>
       </div>
       <div style={{height: 600, width: "100%"}}>
         <DataGrid

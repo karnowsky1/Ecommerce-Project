@@ -72,15 +72,21 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({products}) =
       (params) => {
         return (
           <div className="flex justify-between gap-4 w-full items-center h-full">
-            <ActionButton icon={MdCached} onClick={()=>{
-              handleToggleStock(params.row.id, params.row.inStock)
-            }} />
-            <ActionButton icon={MdDelete} onClick={()=>{
-              handleDelete(params.row.id, params.row.images)
-            }} />
-            <ActionButton icon={MdRemoveRedEye} onClick={()=>{
-              router.push(`product/${params.row.id}`)
-            }} />
+            <ActionButton 
+              icon={MdCached} 
+              onClick={()=>{handleToggleStock(params.row.id, params.row.inStock)}} 
+              tooltip="Toggle Stock Status"
+              />
+            <ActionButton 
+              icon={MdDelete} 
+              onClick={()=>{handleDelete(params.row.id, params.row.images)}} 
+              tooltip="Delete Product"  
+            />
+            <ActionButton 
+              icon={MdRemoveRedEye} 
+              onClick={()=>{router.push(`/product/${params.row.id}`)}} 
+              tooltip="View Product Details"  
+            />
           </div>
         )
       }

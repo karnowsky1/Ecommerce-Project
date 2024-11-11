@@ -4,6 +4,7 @@ import ActionButton from "@/app/components/ActionButton"
 import Heading from "@/app/components/Heading"
 import Status from "@/app/components/Status"
 import { formatPrice } from "@/utils/formatPrice"
+import { Tooltip } from "@mui/material"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 import { Order, User } from "@prisma/client"
 import axios from "axios"
@@ -106,15 +107,21 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({orders}) => {
       (params) => {
         return (
           <div className="flex justify-between gap-4 w-full items-center h-full">
-            <ActionButton icon={MdDeliveryDining} onClick={()=>{
-              handleDispatch(params.row.id)
-            }} />
-            <ActionButton icon={MdDone} onClick={()=>{
-              handleDeliver(params.row.id)
-            }} />
-            <ActionButton icon={MdRemoveRedEye} onClick={()=>{
-              router.push(`/order/${params.row.id}`)
-            }} />
+            <ActionButton 
+              icon={MdDeliveryDining} 
+              onClick={()=>{handleDispatch(params.row.id)}} 
+              tooltip="Dispatch Delivery Status"
+              />
+            <ActionButton 
+              icon={MdDone} 
+              onClick={()=>{handleDeliver(params.row.id)}} 
+              tooltip="Complete Payment"
+              />
+            <ActionButton 
+              icon={MdRemoveRedEye} 
+              onClick={()=>{router.push(`/order/${params.row.id}`)}} 
+              tooltip="View Order Details"
+              />
           </div>
         )
       }

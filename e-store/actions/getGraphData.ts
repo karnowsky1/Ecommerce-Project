@@ -58,7 +58,7 @@ export default async function getGraphData() {
     result.forEach((entry) => {
       const day = moment(entry.createdDate).format("dddd")
       const amount = entry._sum.amount || 0 
-      aggregatedData[day].totalAmount += amount
+      aggregatedData[day].totalAmount += amount/100
     })
 
     // Convert the aggregatedData object to an array and sort it by date

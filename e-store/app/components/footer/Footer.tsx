@@ -29,24 +29,23 @@ const Footer = () => {
           </FooterList>
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
             <h3 className="text-base font-bold mb-2">About Us</h3>
-            <p className="mb-2">At our electronics store, we are dedicated to providing the latest and greatest devices and accessories to our customers. With a wide selection of phones, TVs, laptops, watches, and accessories.</p>
+            <p className="mb-2 max-w-32 sm:max-w-40 md:max-w-80">At our electronics store, we are dedicated to providing the latest and greatest devices and accessories to our customers. With a wide selection of phones, TVs, laptops, watches, and accessories.</p>
             <p>&copy; {new Date().getFullYear()} E~Store. All rights reserved</p>
           </div>
           <FooterList>
-            {
-            // TODO: fix padding for the footer socials section
-            }
-            <h3 className="text-base font-bold mb-2">Follow Us</h3>
-            <div className="flex gap-2">
-              <Link href="https://www.linkedin.com/in/karnowsky-estime/">
-                <FaLinkedin size={24} />
-              </Link>
-              <Link href="https://github.com/karnowsky1">
-                <FaGithub size={24} />
-              </Link>
-              <Link href="https://www.facebook.com/karnowsky.estime/">
-                <MdFacebook size={24} />
-              </Link>
+            <div className="sm:ml-0 md:ml-6 lg:ml-0">
+              <h3 className="text-base font-bold mb-2">Follow Us</h3>
+              <div className="flex gap-2">
+                <Link href="https://www.linkedin.com/in/karnowsky-estime/">
+                  <FaLinkedin size={24} />
+                </Link>
+                <Link href="https://github.com/karnowsky1">
+                  <FaGithub size={24} />
+                </Link>
+                <Link href="https://www.facebook.com/karnowsky.estime/">
+                  <MdFacebook size={24} />
+                </Link>
+              </div>
             </div>
           </FooterList>
         </div>

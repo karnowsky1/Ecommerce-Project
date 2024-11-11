@@ -25,6 +25,7 @@ export const CartContextProvider = (props: Props) => {
   const [cartTotalQuantity, setCartTotalQuantity] = useState(0)
   const [cartTotalAmount, setCartTotalAmount] = useState(0)
   const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(null)
+  const [lastAction, setLastAction] = useState<string | null>(null);
 
   const [paymentIntent, setPaymentIntent] = useState<string | null>(null)
 
@@ -56,9 +57,17 @@ export const CartContextProvider = (props: Props) => {
         setCartTotalQuantity(quantity)
         setCartTotalAmount(total)
       }
+      if (lastAction === "add") {
+        localStorage.setItem("eShopCartItems", JSON.stringify(cartProducts));
+        toast.success("Product added to Cart");
+      }
+
+    // Reset the action after the effect runs
+    setLastAction(null);
+
     }
     getTotals()
-  }, [cartProducts])
+  }, [cartProducts, lastAction])
 
   const handleAddProductToCart = useCallback((product: CartProductType) => {
     setCartProducts((prev) => {
@@ -69,9 +78,9 @@ export const CartContextProvider = (props: Props) => {
       } else {
         updatedCart = [product]
       }
-
-      toast.success("Product added to Cart")
-      localStorage.setItem("eShopCartItems", JSON.stringify(updatedCart))
+      setLastAction("add");
+      // localStorage.setItem("eShopCartItems", JSON.stringify(updatedCart))
+      // toast.success("Product added to Cart")
 
       return updatedCart
     })
@@ -87,8 +96,9 @@ export const CartContextProvider = (props: Props) => {
       })
 
       setCartProducts(filteredProducts)
-      toast.success("Product removed from cart")
+
       localStorage.setItem("eShopCartItems", JSON.stringify(filteredProducts))
+      toast.success("Product removed from cart")
     }
   }, [cartProducts])
 

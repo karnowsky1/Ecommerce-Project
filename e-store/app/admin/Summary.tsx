@@ -52,9 +52,10 @@ const Summary:React.FC<SummaryProps> = ({orders, products, users}) => {
       let tempData = {...prev}
       const totalSale = orders.reduce((acc, item) => { 
         if(item.status == "complete") {
-          return acc + item.amount
+          return acc + item.amount/100
         } else return acc
       }, 0)
+
 
       const paidOrders = orders.filter((order) => {
         return order.status == "complete"
