@@ -1,5 +1,5 @@
-import { getCurrentUser } from "@/actions/getCurrentUser";
-import { NextResponse } from "next/server";
+import { getCurrentUser } from "@/actions/getCurrentUser"
+import { NextResponse } from "next/server"
 
 export async function DELETE(
   request: Request, 
@@ -14,7 +14,7 @@ export async function DELETE(
   }
 
   const product = await prisma?.product.delete({
-    where: {id: params.id}
+    where: { id: params.id }
   })
 
   return NextResponse.json(product)
