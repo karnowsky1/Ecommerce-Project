@@ -5,6 +5,7 @@ import Navbar from './components/nav/Navbar'
 import Footer from './components/footer/Footer'
 import CartProvider from '@/providers/CartProvider'
 import { Toaster } from 'react-hot-toast'
+import { Suspense } from 'react'
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -28,13 +29,15 @@ export default async function RootLayout({
             color: "#FFF"
           }
         }}/>
-        <CartProvider>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </CartProvider>
+        <Suspense>
+          <CartProvider>
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </CartProvider>
+        </Suspense>
       </body>
     </html>
   )

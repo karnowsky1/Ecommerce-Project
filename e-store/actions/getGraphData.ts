@@ -41,7 +41,7 @@ export default async function getGraphData() {
     while (currentDate <= endDate) {
       // Format the day as a string (i.e "Monday")
       const day = currentDate.format("dddd")
-      console.log("day<<<", day, currentDate)
+      // console.log("day<<<", day, currentDate)
 
       // Initialize the aggregeated data for the day with date, day, and totalAmount
       aggregatedData[day] = {
