@@ -5,15 +5,17 @@ import { initializeApp } from "firebase/app"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.GOOGLE_API_KEY,
-  authDomain: process.env.GOOGLE_AUTH_DOMAIN,
-  projectId: process.env.GOOGLE_PROJECT_ID,
-  storageBucket: process.env.GOOGLE_STORAGE_PRODUCT,
-  messagingSenderId: process.env.GOOGLE_MESSAGING_SENDER_ID,
-  appId: process.env.GOOGLE_APP_ID
+  apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_GOOGLE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_GOOGLE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_GOOGLE_STORAGE_PRODUCT,
+  messagingSenderId: process.env.NEXT_PUBLIC_GOOGLE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_GOOGLE_APP_ID
 }
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig)
+
+console.log(firebaseApp)
 
 export default firebaseApp
